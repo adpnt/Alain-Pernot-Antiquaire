@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#5C4033" />
+
+  <!-- SEO essentiels -->
+  <title>Alain Pernot — Antiquaire & Brocanteur à Vic-sur-Seille (57)</title>
+  <meta name="description" content="Antiquaire-brocanteur à Vic-sur-Seille en Moselle. Achat de mobilier ancien, débarras de maison, bijoux et véhicules deux-roues. 25 ans d'expérience. Intervention en Moselle, Meurthe-et-Moselle et Alsace. Tél : 06 42 49 71 72" />
+  <meta name="keywords" content="antiquaire Moselle, brocanteur Vic-sur-Seille, achat mobilier ancien, débarras maison Moselle, achat bijoux anciens, achat Vespa ancienne, brocanteur Lorraine, antiquaire Alsace" />
+  <meta name="author" content="Alain Pernot" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alain-pernot-antiquaire.vercel.app/" />
+
+  <!-- Partage sur réseaux sociaux (Facebook, WhatsApp, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Alain Pernot — Antiquaire & Brocanteur à Vic-sur-Seille" />
+  <meta property="og:description" content="Antiquaire-brocanteur en Moselle. Achat de mobilier ancien, bijoux, débarras de maison. 25 ans d'expérience. 06 42 49 71 72" />
+  <meta property="og:url" content="https://alain-pernot-antiquaire.vercel.app/" />
+  <meta property="og:image" content="https://alain-pernot-antiquaire.vercel.app/images/hero.avif" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alain Pernot — Antiquaire à Vic-sur-Seille" />
+  <meta name="twitter:description" content="Antiquaire-brocanteur en Moselle. 25 ans d'expérience." />
+
+  <!-- Données structurées Google (Schema.org) - CRUCIAL pour le référencement local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://alain-pernot-antiquaire.vercel.app/#business",
+    "name": "Alain Pernot — Antiquaire",
+    "image": "https://alain-pernot-antiquaire.vercel.app/images/hero.avif",
+    "description": "Antiquaire-brocanteur à Vic-sur-Seille. Achat de mobilier ancien, débarras de maison, bijoux et véhicules deux-roues anciens. 25 ans d'expérience.",
+    "url": "https://alain-pernot-antiquaire.vercel.app/",
+    "telephone": "+33642497172",
+    "email": "alainpernot57@orange.fr",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vic-sur-Seille",
+      "postalCode": "57630",
+      "addressRegion": "Moselle",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.7889,
+      "longitude": 6.5333
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Moselle" },
+      { "@type": "AdministrativeArea", "name": "Meurthe-et-Moselle" },
+      { "@type": "AdministrativeArea", "name": "Alsace" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    "knowsAbout": [
+      "Antiquités",
+      "Brocante",
+      "Mobilier ancien",
+      "Bijoux anciens",
+      "Débarras de maison",
+      "Véhicules deux-roues anciens",
+      "Successions"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; background-color: #EAD9BC; }
+    #root { min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:serif;color:#5C4033;">
+      Chargement…
+    </div>
+  </div>
+
+  <script type="text/babel" data-presets="react">
+    // Hooks React disponibles globalement quand on charge React via CDN UMD
+    const { useState, useEffect, useRef, useMemo, useCallback } = React;
+
+
+function AtelierDeCampagne() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  // === Photos d'Alain (embarquées en base64) ===
+  const PHOTO_DEBARRAS = "./images/debarras.avif";
+  const PHOTO_MOBILIER = "./images/mobilier.avif";
+  const PHOTO_BIJOUX = "./images/bijoux.avif";
+  const PHOTO_VESPA = "./images/vespa.avif";
+  const PHOTO_HERO_BG = "./images/hero.avif";
+
+  const palette = {
+    linen: '#EAD9BC',
+    linenLight: '#F2E6CD',
+    chestnut: '#5C4033',
+    chestnutDark: '#3F2A1F',
+    terracotta: '#B8754A',
+    terracottaDark: '#9A5A35',
+    mustard: '#C99D5E',
+    olive: '#6E6F3F',
+    paper: '#F7ECD3',
+    cream: '#FBF4E2',
+  };
+
+  /* ============================================================
+     ILLUSTRATIONS SVG — dessinées à la main, palette atelier
+     ============================================================ */
+
+  // 1. Fauteuil Chesterfield cuir vintage (mobilier)
+  const CommodeIllustration = ({ stroke, bg, accent }) => (
+    <svg viewBox="0 0 200 280" style={{ width: '100%', height: '100%' }} preserveAspectRatio="xMidYMid meet">
+      <rect width="200" height="280" fill={bg} />
+
+      {/* Ombre portée */}
+      <ellipse cx="100" cy="252" rx="68" ry="3" fill={stroke} opacity="0.15" />
+
+      {/* DOSSIER capitonné — silhouette */}
+      <path d="M 50 195 Q 42 110, 55 78 Q 70 50, 100 48 Q 130 50, 145 78 Q 158 110, 150 195 Z"
+        fill={accent} fillOpacity="0.1" stroke={stroke} strokeWidth="1.8" />
+      {/* Liseré intérieur du dossier (épaisseur cuir) */}
+      <path d="M 58 192 Q 50 112, 62 82 Q 75 60, 100 58 Q 125 60, 138 82 Q 150 112, 142 192"
+        fill="none" stroke={stroke} strokeWidth="0.6" opacity="0.6" />
+
+      {/* TUFTING — boutons capitonnés en losanges */}
+      {[
+        [85, 90], [115, 90],
+        [72, 115], [100, 115], [128, 115],
+        [85, 140], [115, 140],
+        [72, 165], [100, 165], [128, 165],
+      ].map(([cx, cy], i) => (
+        <circle key={i} cx={cx} cy={cy} r="1.8" fill={stroke} />
+      ))}
+      {/* Lignes capitonnage (losanges) */}
+      {[
+        [85, 90, 100, 115], [115, 90, 100, 115],
+        [85, 90, 72, 115], [115, 90, 128, 115],
+        [100, 115, 85, 140], [100, 115, 115, 140],
+        [72, 115, 85, 140], [128, 115, 115, 140],
+        [85, 140, 100, 165], [115, 140, 100, 165],
+        [85, 140, 72, 165], [115, 140, 128, 165],
+      ].map(([x1, y1, x2, y2], i) => (
+        <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke={stroke} strokeWidth="0.4" opacity="0.45" />
+      ))}
+
+      {/* ACCOUDOIR GAUCHE — rouleau */}
+      <path d="M 50 195 Q 26 195, 22 175 Q 20 162, 30 155 Q 40 152, 50 162 Z"
+        fill={accent} fillOpacity="0.14" stroke={stroke} strokeWidth="1.5" />
+      <circle cx="30" cy="170" r="3.5" fill="none" stroke={stroke} strokeWidth="0.7" />
+      <circle cx="30" cy="170" r="1.2" fill={stroke} />
+
+      {/* ACCOUDOIR DROIT — rouleau */}
+      <path d="M 150 195 Q 174 195, 178 175 Q 180 162, 170 155 Q 160 152, 150 162 Z"
+        fill={accent} fillOpacity="0.14" stroke={stroke} strokeWidth="1.5" />
+      <circle cx="170" cy="170" r="3.5" fill="none" stroke={stroke} strokeWidth="0.7" />
+      <circle cx="170" cy="170" r="1.2" fill={stroke} />
+
+      {/* COUSSIN d'assise */}
+      <path d="M 28 200 Q 28 192, 36 190 L 164 190 Q 172 192, 172 200 L 170 215 L 30 215 Z"
+        fill={accent} fillOpacity="0.1" stroke={stroke} strokeWidth="1.5" />
+      <line x1="34" y1="197" x2="166" y2="197" stroke={stroke} strokeWidth="0.5" opacity="0.5" />
+
+      {/* TABLIER (skirt) avec clous de tapissier */}
+      <rect x="32" y="215" width="136" height="22" fill={accent} fillOpacity="0.06" stroke={stroke} strokeWidth="1.2" />
+      {[42, 56, 70, 84, 98, 112, 126, 140, 154].map((cx, i) => (
+        <circle key={i} cx={cx} cy={222} r="0.9" fill={stroke} />
+      ))}
+
+      {/* PIEDS — sabots tournés sur roulettes */}
+      <path d="M 42 237 L 40 247 L 50 247 L 48 237 Z" fill={stroke} />
+      <circle cx="45" cy="250" r="2.2" fill="none" stroke={stroke} strokeWidth="0.8" />
+      <path d="M 152 237 L 150 247 L 160 247 L 158 237 Z" fill={stroke} />
+      <circle cx="155" cy="250" r="2.2" fill="none" stroke={stroke} strokeWidth="0.8" />
+    </svg>
+  );
+
+  // 2. Pile d'objets (débarras de maison)
+  const DebarrasIllustration = ({ stroke, bg, accent }) => (
+    <svg viewBox="0 0 200 280" style={{ width: '100%', height: '100%' }} preserveAspectRatio="xMidYMid meet">
+      <rect width="200" height="280" fill={bg} />
+      {/* Horloge comtoise au fond */}
+      <rect x="120" y="50" width="50" height="180" fill="none" stroke={stroke} strokeWidth="1.5" />
+      <rect x="125" y="55" width="40" height="55" fill="none" stroke={stroke} strokeWidth="1" />
+      <circle cx="145" cy="82" r="14" fill="none" stroke={stroke} strokeWidth="1" />
+      <circle cx="145" cy="82" r="1.5" fill={stroke} />
+      <line x1="145" y1="82" x2="145" y2="73" stroke={stroke} strokeWidth="1" />
+      <line x1="145" y1="82" x2="151" y2="82" stroke={stroke} strokeWidth="1" />
+      {/* Pendule */}
+      <line x1="145" y1="115" x2="145" y2="180" stroke={stroke} strokeWidth="0.8" />
+      <circle cx="145" cy="185" r="6" fill="none" stroke={stroke} strokeWidth="1" />
+      <line x1="115" y1="230" x2="175" y2="230" stroke={stroke} strokeWidth="1.5" />
+
+      {/* Cadre tableau */}
+      <rect x="30" y="70" width="60" height="80" fill="none" stroke={stroke} strokeWidth="1.5" />
+      <rect x="35" y="75" width="50" height="70" fill="none" stroke={stroke} strokeWidth="0.8" />
+      <path d="M 40 130 Q 50 110, 60 120 Q 70 100, 80 130 L 80 142 L 40 142 Z" fill="none" stroke={stroke} strokeWidth="0.8" />
+      <circle cx="55" cy="100" r="5" fill="none" stroke={stroke} strokeWidth="0.8" />
+
+      {/* Chaise au premier plan */}
+      <line x1="55" y1="160" x2="55" y2="245" stroke={stroke} strokeWidth="1.5" />
+      <line x1="95" y1="160" x2="95" y2="245" stroke={stroke} strokeWidth="1.5" />
+      <line x1="55" y1="160" x2="95" y2="160" stroke={stroke} strokeWidth="1.5" />
+      <line x1="60" y1="170" x2="90" y2="170" stroke={stroke} strokeWidth="0.8" />
+      <line x1="60" y1="180" x2="90" y2="180" stroke={stroke} strokeWidth="0.8" />
+      <line x1="40" y1="200" x2="110" y2="200" stroke={stroke} strokeWidth="1.5" />
+      <line x1="42" y1="204" x2="108" y2="204" stroke={stroke} strokeWidth="1" />
+      <line x1="45" y1="204" x2="42" y2="245" stroke={stroke} strokeWidth="1.5" />
+      <line x1="105" y1="204" x2="108" y2="245" stroke={stroke} strokeWidth="1.5" />
+
+      {/* Petite boîte sol */}
+      <rect x="105" y="232" width="22" height="14" fill="none" stroke={stroke} strokeWidth="1" />
+      <line x1="105" y1="237" x2="127" y2="237" stroke={stroke} strokeWidth="0.8" />
+
+      {/* Sol */}
+      <line x1="20" y1="252" x2="180" y2="252" stroke={stroke} strokeWidth="1" opacity="0.5" />
+    </svg>
+  );
+
+  // 3. Montre à gousset (bijoux anciens)
+  const BijouxIllustration = ({ stroke, bg, accent }) => (
+    <svg viewBox="0 0 200 280" style={{ width: '100%', height: '100%' }} preserveAspectRatio="xMidYMid meet">
+      <rect width="200" height="280" fill={bg} />
+      {/* Chaîne */}
+      <path d="M 100 30 Q 70 50, 80 70 Q 90 85, 100 95" fill="none" stroke={stroke} strokeWidth="1" />
+      {[35, 42, 49, 56, 63, 70, 77, 84, 91].map((y, i) => (
+        <ellipse
+          key={i}
+          cx={100 - Math.sin(i * 0.5) * 12 - 5}
+          cy={y}
+          rx="2.5"
+          ry="1.5"
+          fill="none"
+          stroke={stroke}
+          strokeWidth="0.8"
+          transform={`rotate(${i * 8} ${100 - Math.sin(i * 0.5) * 12 - 5} ${y})`}
+        />
+      ))}
+      {/* Anneau de couronne */}
+      <circle cx="100" cy="95" r="6" fill="none" stroke={stroke} strokeWidth="1.5" />
+      {/* Couronne */}
+      <rect x="94" y="100" width="12" height="8" fill="none" stroke={stroke} strokeWidth="1.5" />
+      {/* Boîtier extérieur */}
+      <circle cx="100" cy="170" r="58" fill="none" stroke={stroke} strokeWidth="2" />
+      <circle cx="100" cy="170" r="54" fill="none" stroke={stroke} strokeWidth="0.8" />
+      {/* Cadran */}
+      <circle cx="100" cy="170" r="48" fill={accent} fillOpacity="0.06" stroke={stroke} strokeWidth="1" />
+      {/* Chiffres romains (positions cardinales) */}
+      <text x="100" y="135" textAnchor="middle" fontFamily="Cardo" fontSize="11" fill={stroke} fontStyle="italic">XII</text>
+      <text x="138" y="174" textAnchor="middle" fontFamily="Cardo" fontSize="10" fill={stroke} fontStyle="italic">III</text>
+      <text x="100" y="212" textAnchor="middle" fontFamily="Cardo" fontSize="10" fill={stroke} fontStyle="italic">VI</text>
+      <text x="62" y="174" textAnchor="middle" fontFamily="Cardo" fontSize="10" fill={stroke} fontStyle="italic">IX</text>
+      {/* Index minutes */}
+      {Array.from({ length: 12 }, (_, i) => {
+        const angle = (i * 30 - 90) * (Math.PI / 180);
+        const x1 = 100 + Math.cos(angle) * 44;
+        const y1 = 170 + Math.sin(angle) * 44;
+        const x2 = 100 + Math.cos(angle) * 47;
+        const y2 = 170 + Math.sin(angle) * 47;
+        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke={stroke} strokeWidth="0.8" />;
+      })}
+      {/* Aiguilles */}
+      <line x1="100" y1="170" x2="100" y2="142" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="100" y1="170" x2="125" y2="178" stroke={stroke} strokeWidth="1.2" strokeLinecap="round" />
+      <circle cx="100" cy="170" r="2.5" fill={stroke} />
+      {/* Sous-cadran (petite seconde) */}
+      <circle cx="100" cy="195" r="9" fill="none" stroke={stroke} strokeWidth="0.8" />
+      <line x1="100" y1="195" x2="100" y2="189" stroke={stroke} strokeWidth="0.8" />
+    </svg>
+  );
+
+  // 4. Vespa vintage (véhicules deux-roues)
+  const VehiculeIllustration = ({ stroke, bg, accent }) => (
+    <svg viewBox="0 0 200 280" style={{ width: '100%', height: '100%' }} preserveAspectRatio="xMidYMid meet">
+      <rect width="200" height="280" fill={bg} />
+
+      {/* Ombre au sol */}
+      <ellipse cx="100" cy="240" rx="80" ry="3" fill={stroke} opacity="0.15" />
+
+      {/* ROUE ARRIÈRE */}
+      <circle cx="55" cy="218" r="22" fill="none" stroke={stroke} strokeWidth="1.8" />
+      <circle cx="55" cy="218" r="18" fill={accent} fillOpacity="0.08" stroke={stroke} strokeWidth="0.6" />
+      <circle cx="55" cy="218" r="6" fill={accent} fillOpacity="0.3" stroke={stroke} strokeWidth="1" />
+      <circle cx="55" cy="218" r="1.5" fill={stroke} />
+      {Array.from({ length: 5 }, (_, i) => {
+        const angle = (i * 72 - 90) * (Math.PI / 180);
+        const x = 55 + Math.cos(angle) * 11;
+        const y = 218 + Math.sin(angle) * 11;
+        return <circle key={`rb-${i}`} cx={x} cy={y} r="0.9" fill={stroke} />;
+      })}
+
+      {/* ROUE AVANT */}
+      <circle cx="150" cy="218" r="22" fill="none" stroke={stroke} strokeWidth="1.8" />
+      <circle cx="150" cy="218" r="18" fill={accent} fillOpacity="0.08" stroke={stroke} strokeWidth="0.6" />
+      <circle cx="150" cy="218" r="6" fill={accent} fillOpacity="0.3" stroke={stroke} strokeWidth="1" />
+      <circle cx="150" cy="218" r="1.5" fill={stroke} />
+      {Array.from({ length: 5 }, (_, i) => {
+        const angle = (i * 72 - 90) * (Math.PI / 180);
+        const x = 150 + Math.cos(angle) * 11;
+        const y = 218 + Math.sin(angle) * 11;
+        return <circle key={`rf-${i}`} cx={x} cy={y} r="0.9" fill={stroke} />;
+      })}
+
+      {/* GARDE-BOUE AVANT */}
+      <path d="M 130 215 Q 132 198, 145 195 L 156 195 Q 168 198, 170 215"
+        fill={accent} fillOpacity="0.18" stroke={stroke} strokeWidth="1.3" />
+
+      {/* CARÉNAGE ARRIÈRE — la "guêpe" caractéristique Vespa */}
+      <path d="M 33 218 Q 22 198, 26 172 Q 32 150, 55 145 L 105 142 Q 120 142, 122 152 L 122 200 L 120 215 Q 115 220, 100 220 L 78 220 Q 62 220, 55 218 Z"
+        fill={accent} fillOpacity="0.2" stroke={stroke} strokeWidth="1.6" />
+      {/* Ouïe d'aération latérale */}
+      <ellipse cx="55" cy="178" rx="14" ry="6.5" fill="none" stroke={stroke} strokeWidth="0.9" />
+      <line x1="46" y1="174" x2="64" y2="174" stroke={stroke} strokeWidth="0.4" />
+      <line x1="46" y1="178" x2="64" y2="178" stroke={stroke} strokeWidth="0.4" />
+      <line x1="46" y1="182" x2="64" y2="182" stroke={stroke} strokeWidth="0.4" />
+
+      {/* PLATEFORME / REPOSE-PIEDS (step-through caractéristique) */}
+      <path d="M 105 175 L 130 175 L 132 195 L 105 195 Z"
+        fill={accent} fillOpacity="0.1" stroke={stroke} strokeWidth="1.2" />
+      <line x1="110" y1="180" x2="128" y2="180" stroke={stroke} strokeWidth="0.4" opacity="0.5" />
+      <line x1="110" y1="185" x2="128" y2="185" stroke={stroke} strokeWidth="0.4" opacity="0.5" />
+      <line x1="110" y1="190" x2="128" y2="190" stroke={stroke} strokeWidth="0.4" opacity="0.5" />
+
+      {/* TABLIER AVANT (front shield) — silhouette Vespa */}
+      <path d="M 130 195 L 130 175 Q 132 130, 140 116 Q 145 108, 154 110 Q 161 116, 162 130 Q 164 152, 164 195 Z"
+        fill={accent} fillOpacity="0.2" stroke={stroke} strokeWidth="1.6" />
+
+      {/* PHARE rond intégré au tablier */}
+      <circle cx="151" cy="135" r="7.5" fill={accent} fillOpacity="0.55" stroke={stroke} strokeWidth="1.3" />
+      <circle cx="151" cy="135" r="4.5" fill={accent} fillOpacity="0.8" stroke={stroke} strokeWidth="0.4" />
+      <ellipse cx="149" cy="133" rx="1.5" ry="1" fill={bg} opacity="0.9" />
+
+      {/* SELLE */}
+      <path d="M 36 145 Q 36 134, 52 132 L 96 130 Q 106 132, 106 142 L 105 152 L 36 154 Z"
+        fill={stroke} />
+      <line x1="42" y1="142" x2="100" y2="142" stroke={bg} strokeWidth="0.6" opacity="0.5" />
+      {/* Petit dossier de selle */}
+      <path d="M 36 145 Q 30 138, 30 130 L 34 130 L 36 145 Z" fill={stroke} />
+
+      {/* GUIDON */}
+      <line x1="148" y1="115" x2="148" y2="100" stroke={stroke} strokeWidth="2" />
+      <line x1="135" y1="100" x2="161" y2="100" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
+      <ellipse cx="135" cy="100" rx="3" ry="2" fill={stroke} />
+      <ellipse cx="161" cy="100" rx="3" ry="2" fill={stroke} />
+      <circle cx="148" cy="106" r="2.5" fill="none" stroke={stroke} strokeWidth="0.6" />
+      <circle cx="148" cy="106" r="0.8" fill={stroke} />
+
+      {/* Petit logo "AP" sur le tablier */}
+      <text x="147" y="170" textAnchor="middle" fontFamily="Cardo" fontSize="6" fill={stroke} fontStyle="italic" fontWeight="700">AP</text>
+
+      {/* Sol */}
+      <line x1="10" y1="245" x2="190" y2="245" stroke={stroke} strokeWidth="1" opacity="0.4" />
+      <line x1="20" y1="249" x2="180" y2="249" stroke={stroke} strokeWidth="0.5" opacity="0.3" strokeDasharray="3 3" />
+    </svg>
+  );
+
+  // Hero illustration — composition d'objets en cartouche ornementale
+  const HeroIllustration = () => (
+    <svg
+      viewBox="0 0 800 500"
+      style={{ width: '100%', height: '100%' }}
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern id="heroPaper" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.6" fill={palette.terracotta} opacity="0.15" />
+        </pattern>
+        <pattern id="heroLines" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 0 20 L 40 20" stroke={palette.chestnut} strokeWidth="0.3" opacity="0.08" />
+          <path d="M 20 0 L 20 40" stroke={palette.chestnut} strokeWidth="0.3" opacity="0.08" />
+        </pattern>
+      </defs>
+
+      {/* Fond papier texturé */}
+      <rect width="800" height="500" fill={palette.linen} />
+      <rect width="800" height="500" fill="url(#heroPaper)" />
+      <rect width="800" height="500" fill="url(#heroLines)" />
+
+      {/* Vignette / dégradé */}
+      <radialGradient id="heroVig" cx="50%" cy="50%" r="70%">
+        <stop offset="0%" stopColor={palette.linen} stopOpacity="0" />
+        <stop offset="100%" stopColor={palette.chestnutDark} stopOpacity="0.35" />
+      </radialGradient>
+      <rect width="800" height="500" fill="url(#heroVig)" />
+
+      {/* Silhouettes d'objets anciens — gauche */}
+      <g opacity="0.45">
+        {/* Lampe à pétrole */}
+        <g transform="translate(80, 180)">
+          <ellipse cx="0" cy="160" rx="35" ry="6" fill={palette.chestnut} />
+          <rect x="-25" y="120" width="50" height="40" fill="none" stroke={palette.chestnut} strokeWidth="1.5" />
+          <path d="M -18 120 Q 0 60, 18 120" fill={palette.terracotta} fillOpacity="0.2" stroke={palette.chestnut} strokeWidth="1.5" />
+          <line x1="0" y1="60" x2="0" y2="40" stroke={palette.chestnut} strokeWidth="1.5" />
+          <ellipse cx="0" cy="40" rx="8" ry="3" fill={palette.terracotta} fillOpacity="0.4" />
+        </g>
+
+        {/* Vase grec */}
+        <g transform="translate(180, 230)">
+          <ellipse cx="0" cy="110" rx="22" ry="4" fill={palette.chestnut} />
+          <path d="M -22 110 Q -28 70, -18 30 Q -22 15, -10 5 L 10 5 Q 22 15, 18 30 Q 28 70, 22 110 Z"
+            fill={palette.terracotta} fillOpacity="0.18" stroke={palette.chestnut} strokeWidth="1.5" />
+          <line x1="-18" y1="40" x2="18" y2="40" stroke={palette.chestnut} strokeWidth="0.8" />
+          <line x1="-20" y1="80" x2="20" y2="80" stroke={palette.chestnut} strokeWidth="0.8" />
+        </g>
+      </g>
+
+      {/* Silhouettes — droite */}
+      <g opacity="0.45">
+        {/* Cadre photo */}
+        <g transform="translate(640, 150)">
+          <rect x="-45" y="0" width="90" height="120" fill="none" stroke={palette.chestnut} strokeWidth="2" />
+          <rect x="-40" y="5" width="80" height="110" fill={palette.terracotta} fillOpacity="0.1" stroke={palette.chestnut} strokeWidth="0.8" />
+          <path d="M -30 90 Q -10 70, 10 80 Q 25 65, 35 90 L 35 105 L -30 105 Z" fill="none" stroke={palette.chestnut} strokeWidth="0.8" />
+          <circle cx="-15" cy="40" r="8" fill="none" stroke={palette.chestnut} strokeWidth="0.8" />
+        </g>
+
+        {/* Chandelier */}
+        <g transform="translate(720, 290)">
+          <ellipse cx="0" cy="120" rx="20" ry="4" fill={palette.chestnut} />
+          <path d="M 0 120 L 0 30" stroke={palette.chestnut} strokeWidth="2" />
+          <ellipse cx="0" cy="30" rx="8" ry="2" fill={palette.chestnut} />
+          <rect x="-1" y="10" width="2" height="20" fill={palette.chestnut} />
+          <path d="M 0 10 Q -2 4, 0 0 Q 2 4, 0 10" fill={palette.terracotta} />
+        </g>
+      </g>
+
+      {/* Ornement central décoratif (autour du futur emplacement de la carte) */}
+      <g transform="translate(400, 250)" opacity="0.3">
+        <circle r="180" fill="none" stroke={palette.terracotta} strokeWidth="0.5" strokeDasharray="2 4" />
+        <circle r="200" fill="none" stroke={palette.terracotta} strokeWidth="0.3" />
+      </g>
+
+      {/* Coins ornementaux */}
+      {[
+        [50, 50, 1, 1],
+        [750, 50, -1, 1],
+        [50, 450, 1, -1],
+        [750, 450, -1, -1],
+      ].map(([x, y, sx, sy], i) => (
+        <g key={i} transform={`translate(${x},${y}) scale(${sx},${sy})`} opacity="0.5">
+          <path d="M 0 0 L 30 0 M 0 0 L 0 30" stroke={palette.terracotta} strokeWidth="1" />
+          <circle cx="6" cy="6" r="2" fill="none" stroke={palette.terracotta} strokeWidth="0.8" />
+          <path d="M 12 12 L 24 12 M 12 12 L 12 24" stroke={palette.terracotta} strokeWidth="0.5" />
+        </g>
+      ))}
+    </svg>
+  );
+
+  const services = [
+    {
+      title: 'Achat mobilier ancien',
+      desc: "Grand mobilier, petit mobilier, table, assise et décoration.",
+      Illustration: CommodeIllustration,
+      photo: PHOTO_MOBILIER,
+    },
+    {
+      title: 'Débarras de maison',
+      desc: "Successions, déménagements — intervention rapide et soignée.",
+      Illustration: DebarrasIllustration,
+      photo: PHOTO_DEBARRAS,
+    },
+    {
+      title: 'Achat bijoux anciens',
+      desc: "Bijoux et montres anciens. Pour les pièces qui ont une histoire.",
+      Illustration: BijouxIllustration,
+      photo: PHOTO_BIJOUX,
+    },
+    {
+      title: 'Achat véhicules deux-roues',
+      desc: "Mobylettes Motobécane, Peugeot, Solex, Vespa, vieilles motos françaises et italiennes. En l'état ou restaurés.",
+      Illustration: VehiculeIllustration,
+      photo: PHOTO_VESPA,
+    },
+  ];
+
+  // Petit ornement décoratif réutilisable
+  const Ornament = ({ color = palette.terracotta, size = 40 }) => (
+    <svg width={size} height={size / 2} viewBox="0 0 80 40" style={{ display: 'inline-block' }}>
+      <path d="M 0 20 L 25 20 M 55 20 L 80 20" stroke={color} strokeWidth="1" />
+      <circle cx="40" cy="20" r="4" fill="none" stroke={color} strokeWidth="1" />
+      <circle cx="40" cy="20" r="1.5" fill={color} />
+      <path d="M 30 20 L 35 15 L 35 25 Z M 50 20 L 45 15 L 45 25 Z" fill={color} />
+    </svg>
+  );
+
+  return (
+    <div
+      style={{
+        backgroundColor: palette.linen,
+        color: palette.chestnutDark,
+        fontFamily: '"DM Sans", system-ui, sans-serif',
+        minHeight: '100vh',
+      }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap');
+        .serif { font-family: 'Cardo', serif; }
+        .serif-it { font-family: 'Cardo', serif; font-style: italic; }
+        .tracked { letter-spacing: 0.32em; text-transform: uppercase; }
+        .tracked-sm { letter-spacing: 0.18em; text-transform: uppercase; }
+        .paper-bg {
+          background-color: ${palette.paper};
+          background-image:
+            radial-gradient(at 15% 20%, rgba(184, 117, 74, 0.06) 0px, transparent 60%),
+            radial-gradient(at 85% 80%, rgba(110, 111, 63, 0.05) 0px, transparent 50%);
+        }
+        .linen-bg {
+          background-color: ${palette.linen};
+          background-image:
+            radial-gradient(at 30% 30%, rgba(92, 64, 51, 0.04) 0px, transparent 50%),
+            radial-gradient(at 70% 70%, rgba(184, 117, 74, 0.05) 0px, transparent 50%);
+        }
+        .double-border { position: relative; }
+        .double-border::before {
+          content: '';
+          position: absolute;
+          inset: 8px;
+          border: 1px solid ${palette.terracotta};
+          opacity: 0.4;
+          pointer-events: none;
+        }
+        .tile { transition: all .55s cubic-bezier(.2,.7,.2,1); }
+        .tile:hover { transform: translateY(-4px); }
+        .tile:hover .tile-label { background-color: ${palette.terracotta}; color: ${palette.cream}; }
+        .tile-label { transition: all .4s ease; }
+        @keyframes rise { from { opacity:0; transform: translateY(15px);} to { opacity:1; transform: none;} }
+        .rise { animation: rise 1s ease both; }
+      `}</style>
+
+      {/* HEADER */}
+      <header className="paper-bg sticky top-0 z-40" style={{ borderBottom: `2px solid ${palette.chestnut}` }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 md:py-7 flex items-center justify-between gap-2">
+          {/* Logo + nom */}
+          <div className="flex items-center gap-2 md:gap-4 min-w-0">
+            <div
+              className="flex-shrink-0"
+              style={{
+                width: '40px',
+                height: '40px',
+                border: `2px solid ${palette.chestnut}`,
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+              }}
+            >
+              <span
+                className="serif"
+                style={{
+                  color: palette.chestnut,
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  letterSpacing: '-0.05em',
+                }}
+              >
+                AP
+              </span>
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '3px',
+                  border: `1px solid ${palette.terracotta}`,
+                  borderRadius: '50%',
+                  opacity: 0.5,
+                }}
+              />
+            </div>
+            <div className="min-w-0">
+              <div
+                className="serif truncate"
+                style={{
+                  color: palette.chestnutDark,
+                  fontSize: 'clamp(1.1rem, 4vw, 1.65rem)',
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Alain Pernot
+              </div>
+              <div
+                className="tracked-sm hidden sm:block"
+                style={{
+                  color: palette.terracotta,
+                  fontSize: '0.62rem',
+                  marginTop: '0.35rem',
+                  fontWeight: 500,
+                }}
+              >
+                Antiquaire · Brocanteur
+              </div>
+            </div>
+          </div>
+
+          {/* Nav desktop */}
+          <nav className="hidden md:flex items-center gap-8">
+            {[
+              { label: 'Services', href: '#services' },
+              { label: 'Zone', href: '#zone' },
+              { label: 'Contact', href: '#contact' },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="serif"
+                style={{ color: palette.chestnutDark, fontSize: '1.05rem', fontWeight: 400 }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Bouton téléphone desktop */}
+          <a
+            href="tel:0642497172"
+            className="hidden md:flex items-center gap-3 px-6 py-3 flex-shrink-0"
+            style={{
+              backgroundColor: palette.chestnut,
+              color: palette.linenLight,
+              border: `1px solid ${palette.chestnut}`,
+            }}
+          >
+            <span style={{ fontSize: '1.1rem' }}>☎</span>
+            <span className="serif" style={{ fontSize: '1.15rem', fontWeight: 700 }}>
+              06 42 49 71 72
+            </span>
+          </a>
+
+          {/* Bouton téléphone compact + burger (mobile) */}
+          <div className="flex items-center gap-2 md:hidden flex-shrink-0">
+            <a
+              href="tel:0642497172"
+              aria-label="Appeler le 06 42 49 71 72"
+              className="flex items-center justify-center"
+              style={{
+                width: '44px',
+                height: '44px',
+                backgroundColor: palette.chestnut,
+                color: palette.linenLight,
+                fontSize: '1.3rem',
+              }}
+            >
+              ☎
+            </a>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Ouvrir le menu"
+              className="flex items-center justify-center"
+              style={{
+                width: '44px',
+                height: '44px',
+                border: `1px solid ${palette.chestnut}`,
+                color: palette.chestnut,
+                fontSize: '1.3rem',
+                backgroundColor: 'transparent',
+              }}
+            >
+              {menuOpen ? '✕' : '☰'}
+            </button>
+          </div>
+        </div>
+
+        {/* Menu mobile déroulant */}
+        {menuOpen && (
+          <div
+            className="md:hidden"
+            style={{
+              borderTop: `1px solid ${palette.terracotta}40`,
+              backgroundColor: palette.paper,
+            }}
+          >
+            <nav className="px-4 py-4 flex flex-col">
+              {[
+                { label: 'Nos services', href: '#services' },
+                { label: 'Zone d\'intervention', href: '#zone' },
+                { label: 'Contact', href: '#contact' },
+              ].map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="serif"
+                  style={{
+                    color: palette.chestnutDark,
+                    fontSize: '1.2rem',
+                    fontWeight: 400,
+                    padding: '1rem 0.5rem',
+                    borderBottom: `1px dashed ${palette.terracotta}50`,
+                  }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* HERO — photo plein-cadre + carte centrée */}
+      <section
+        className="relative"
+        style={{ minHeight: 'clamp(500px, 80vh, 760px)', overflow: 'hidden' }}
+      >
+        {/* Photo de fond */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(${PHOTO_HERO_BG})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* Voile chaud pour harmoniser avec la palette terre cuite */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: `linear-gradient(180deg, rgba(63,42,31,0.22) 0%, rgba(63,42,31,0.08) 35%, rgba(63,42,31,0.32) 100%)`,
+          }}
+        />
+        {/* Vignette douce */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: `radial-gradient(ellipse at center, transparent 45%, rgba(63,42,31,0.35) 100%)`,
+          }}
+        />
+
+        <div className="relative h-full flex items-center justify-center px-4 md:px-6 py-12 md:py-0" style={{ minHeight: 'inherit' }}>
+          <div
+            className="rise double-border text-center w-full"
+            style={{
+              backgroundColor: palette.cream,
+              padding: 'clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 5vw, 5rem)',
+              maxWidth: '52rem',
+              boxShadow: '0 20px 60px rgba(63, 42, 31, 0.18)',
+              border: `1px solid ${palette.terracotta}80`,
+            }}
+          >
+            <div className="flex justify-center mb-4 md:mb-6">
+              <Ornament size={70} />
+            </div>
+
+            <div
+              className="tracked"
+              style={{
+                color: palette.terracotta,
+                fontSize: '0.7rem',
+                marginBottom: '1rem',
+                fontWeight: 500,
+              }}
+            >
+              Antiquaire · Brocanteur
+            </div>
+
+            <h1
+              className="serif"
+              style={{
+                fontSize: 'clamp(2.25rem, 8vw, 4.5rem)',
+                fontWeight: 700,
+                color: palette.chestnutDark,
+                lineHeight: 1.05,
+                letterSpacing: '-0.01em',
+                marginBottom: '1rem',
+              }}
+            >
+              Alain Pernot
+            </h1>
+
+            <div
+              className="serif-it"
+              style={{
+                color: palette.terracotta,
+                fontSize: 'clamp(1rem, 3.5vw, 1.45rem)',
+                marginBottom: '1.5rem',
+                lineHeight: 1.4,
+              }}
+            >
+              ~ Le métier d'antiquaire, à l'ancienne ~
+            </div>
+
+            <p
+              className="serif"
+              style={{
+                color: palette.chestnut,
+                fontSize: 'clamp(1rem, 2.8vw, 1.15rem)',
+                lineHeight: 1.6,
+                maxWidth: '36rem',
+                margin: '0 auto 1.75rem',
+              }}
+            >
+              Le métier d'antiquaire fait avec passion,
+              depuis l'atelier de Vic-sur-Seille.
+            </p>
+
+            <a
+              href="tel:0642497172"
+              className="serif inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-10 py-4"
+              style={{
+                backgroundColor: palette.terracotta,
+                color: palette.cream,
+                fontSize: 'clamp(1rem, 3.5vw, 1.15rem)',
+                fontWeight: 700,
+                border: `1px solid ${palette.terracottaDark}`,
+                letterSpacing: '0.02em',
+                minHeight: '52px',
+              }}
+            >
+              <span>☎</span>
+              <span>06 42 49 71 72</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES — grille tuiles avec illustrations SVG + étiquettes */}
+      <section id="services" className="paper-bg" style={{ padding: 'clamp(3rem, 8vw, 7rem) 0' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-10 md:mb-14">
+            <div
+              className="tracked"
+              style={{
+                color: palette.terracotta,
+                fontSize: '0.7rem',
+                marginBottom: '1.25rem',
+                fontWeight: 500,
+              }}
+            >
+              ─ Nos services ─
+            </div>
+            <h2
+              className="serif"
+              style={{
+                fontSize: 'clamp(1.85rem, 6vw, 3.25rem)',
+                fontWeight: 700,
+                color: palette.chestnutDark,
+                lineHeight: 1.15,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Quatre métiers,{' '}
+              <span className="serif-it" style={{ color: palette.terracotta, fontWeight: 400 }}>
+                une seule maison.
+              </span>
+            </h2>
+            <div className="flex justify-center mt-6">
+              <Ornament size={50} color={palette.olive} />
+            </div>
+          </div>
+
+          {/* MOBILE — chaque service avec sa photo + description groupées */}
+          <div className="md:hidden flex flex-col gap-8">
+            {services.map((s) => {
+              const Illu = s.Illustration;
+              return (
+                <article key={s.title} className="flex flex-col">
+                  <a
+                    href="#"
+                    className="tile relative block"
+                    style={{
+                      aspectRatio: '4/5',
+                      overflow: 'hidden',
+                      border: `1px solid ${palette.terracotta}50`,
+                      backgroundColor: s.photo ? '#FFFFFF' : palette.linenLight,
+                    }}
+                  >
+                    {s.photo ? (
+                      <img
+                        src={s.photo}
+                        alt={s.title}
+                        className="tile-img"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: s.photoPosition || 'center',
+                          display: 'block',
+                        }}
+                      />
+                    ) : (
+                      <Illu
+                        stroke={palette.chestnut}
+                        bg={palette.linenLight}
+                        accent={palette.terracotta}
+                      />
+                    )}
+                    <div
+                      className="tile-label serif absolute"
+                      style={{
+                        left: '1rem',
+                        right: '1rem',
+                        bottom: '1rem',
+                        backgroundColor: palette.cream,
+                        color: palette.chestnutDark,
+                        padding: '0.85rem 1rem',
+                        textAlign: 'center',
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        border: `1px solid ${palette.terracotta}50`,
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {s.title}
+                    </div>
+                  </a>
+                  <p
+                    className="serif"
+                    style={{
+                      color: palette.chestnut,
+                      fontSize: '1rem',
+                      lineHeight: 1.65,
+                      textAlign: 'center',
+                      padding: '1.25rem 0.5rem 0',
+                    }}
+                  >
+                    {s.desc}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* DESKTOP — grille 4 colonnes */}
+          <div className="hidden md:grid md:grid-cols-4 gap-5">
+            {services.map((s) => {
+              const Illu = s.Illustration;
+              return (
+                <a
+                  key={s.title}
+                  href="#"
+                  className="tile relative block"
+                  style={{
+                    aspectRatio: '3/4',
+                    overflow: 'hidden',
+                    border: `1px solid ${palette.terracotta}50`,
+                    backgroundColor: s.photo ? '#FFFFFF' : palette.linenLight,
+                  }}
+                >
+                  {s.photo ? (
+                    <img
+                      src={s.photo}
+                      alt={s.title}
+                      className="tile-img"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: s.photoPosition || 'center',
+                        display: 'block',
+                      }}
+                    />
+                  ) : (
+                    <Illu
+                      stroke={palette.chestnut}
+                      bg={palette.linenLight}
+                      accent={palette.terracotta}
+                    />
+                  )}
+                  <div
+                    className="tile-label serif absolute"
+                    style={{
+                      left: '1rem',
+                      right: '1rem',
+                      bottom: '1.25rem',
+                      backgroundColor: palette.cream,
+                      color: palette.chestnutDark,
+                      padding: '0.85rem 1rem',
+                      textAlign: 'center',
+                      fontSize: 'clamp(0.95rem, 1.3vw, 1.2rem)',
+                      fontWeight: 700,
+                      border: `1px solid ${palette.terracotta}50`,
+                      lineHeight: 1.2,
+                      minHeight: '3.5rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {s.title}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-4 gap-5 mt-6">
+            {services.map((s) => (
+              <p
+                key={s.title}
+                className="serif"
+                style={{
+                  color: palette.chestnut,
+                  fontSize: '0.95rem',
+                  lineHeight: 1.65,
+                  textAlign: 'center',
+                  padding: '0 0.5rem',
+                }}
+              >
+                {s.desc}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* L'EXPÉRIENCE — 25 ans */}
+      <section
+        style={{
+          backgroundColor: palette.chestnutDark,
+          color: palette.linenLight,
+          padding: 'clamp(3rem, 8vw, 6rem) 0',
+          backgroundImage: `radial-gradient(at 50% 0%, ${palette.chestnut} 0%, ${palette.chestnutDark} 70%)`,
+        }}
+      >
+        <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
+          <div className="flex justify-center mb-6 md:mb-8">
+            <Ornament size={70} color={palette.mustard} />
+          </div>
+
+          <div
+            className="tracked"
+            style={{
+              color: palette.mustard,
+              fontSize: '0.7rem',
+              marginBottom: '1rem',
+              fontWeight: 500,
+            }}
+          >
+            ─ L'expérience ─
+          </div>
+
+          <div
+            className="serif"
+            style={{
+              fontSize: 'clamp(4.5rem, 22vw, 9rem)',
+              fontWeight: 700,
+              color: palette.mustard,
+              lineHeight: 1,
+              letterSpacing: '-0.04em',
+              marginBottom: '0.5rem',
+            }}
+          >
+            25
+            <span className="serif-it" style={{ fontSize: '0.4em', fontWeight: 400 }}>
+              {' '}ans
+            </span>
+          </div>
+
+          <h2
+            className="serif"
+            style={{
+              fontSize: 'clamp(1.25rem, 4.5vw, 2.25rem)',
+              fontWeight: 400,
+              lineHeight: 1.4,
+              letterSpacing: '-0.005em',
+              marginBottom: '1.5rem',
+            }}
+          >
+            passées dans le métier,{' '}
+            <span className="serif-it" style={{ color: palette.mustard }}>
+              le regard formé.
+            </span>
+          </h2>
+
+          <p
+            className="serif-it"
+            style={{
+              fontSize: 'clamp(1rem, 3vw, 1.15rem)',
+              opacity: 0.85,
+              maxWidth: '36rem',
+              margin: '0 auto',
+              lineHeight: 1.7,
+              padding: '0 0.5rem',
+            }}
+          >
+            "Reconnaître, sans hésiter, ce qui mérite une seconde vie —
+            c'est tout le métier."
+          </p>
+          <div
+            className="serif tracked-sm"
+            style={{
+              color: palette.mustard,
+              fontSize: '0.7rem',
+              marginTop: '1.25rem',
+              opacity: 0.85,
+            }}
+          >
+            ─ Alain Pernot ─
+          </div>
+        </div>
+      </section>
+
+      {/* ZONE D'INTERVENTION */}
+      <section id="zone" className="linen-bg" style={{ padding: 'clamp(3rem, 8vw, 7rem) 0' }}>
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-10 md:mb-16">
+            <div
+              className="tracked"
+              style={{
+                color: palette.terracotta,
+                fontSize: '0.7rem',
+                marginBottom: '1.25rem',
+                fontWeight: 500,
+              }}
+            >
+              ─ Zone d'intervention ─
+            </div>
+            <h2
+              className="serif"
+              style={{
+                fontSize: 'clamp(1.75rem, 5.5vw, 3rem)',
+                fontWeight: 700,
+                color: palette.chestnutDark,
+                lineHeight: 1.15,
+                letterSpacing: '-0.01em',
+                marginBottom: '1rem',
+              }}
+            >
+              De Vic-sur-Seille à toute la{' '}
+              <span className="serif-it" style={{ color: palette.terracotta, fontWeight: 400 }}>
+                région.
+              </span>
+            </h2>
+          </div>
+
+          <div
+            className="double-border"
+            style={{
+              backgroundColor: palette.paper,
+              border: `1px solid ${palette.terracotta}80`,
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
+            }}
+          >
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+              {/* Carte — sous la liste sur mobile (order-2), à gauche sur desktop (order-1) */}
+              <div className="order-2 md:order-1">
+                <svg viewBox="0 0 500 380" style={{ width: '100%', height: 'auto' }}>
+                  <defs>
+                    <pattern id="paperPattern" width="6" height="6" patternUnits="userSpaceOnUse">
+                      <circle cx="1" cy="1" r="0.5" fill={palette.terracotta} opacity="0.2" />
+                    </pattern>
+                  </defs>
+                  <rect width="500" height="380" fill="url(#paperPattern)" />
+
+                  <path
+                    d="M 80 60 L 240 50 L 280 160 L 250 250 L 140 260 L 60 180 Z"
+                    fill={palette.terracotta}
+                    fillOpacity="0.25"
+                    stroke={palette.terracotta}
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M 60 180 L 140 260 L 250 250 L 240 340 L 120 350 L 50 280 Z"
+                    fill={palette.olive}
+                    fillOpacity="0.3"
+                    stroke={palette.olive}
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M 280 160 L 410 140 L 440 290 L 330 320 L 250 250 Z"
+                    fill={palette.mustard}
+                    fillOpacity="0.4"
+                    stroke={palette.mustard}
+                    strokeWidth="2"
+                  />
+
+                  <circle
+                    cx="200"
+                    cy="170"
+                    r="20"
+                    fill="none"
+                    stroke={palette.chestnutDark}
+                    strokeWidth="1"
+                    opacity="0.4"
+                  />
+                  <circle cx="200" cy="170" r="7" fill={palette.chestnutDark} />
+
+                  <text x="180" y="115" fontFamily="Cardo" fontStyle="italic" fontSize="16" fontWeight="700" fill={palette.chestnutDark}>
+                    Moselle
+                  </text>
+                  <text x="120" y="320" fontFamily="Cardo" fontStyle="italic" fontSize="14" fontWeight="700" fill={palette.chestnutDark}>
+                    Meurthe-et-Moselle
+                  </text>
+                  <text x="330" y="230" fontFamily="Cardo" fontStyle="italic" fontSize="16" fontWeight="700" fill={palette.chestnutDark}>
+                    Alsace
+                  </text>
+                  <text x="225" y="175" fontFamily="DM Sans" fontSize="11" fontWeight="500" fill={palette.chestnutDark}>
+                    Vic-sur-Seille
+                  </text>
+                </svg>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                  {[
+                    { name: 'Vic-sur-Seille', detail: 'Siège · 57630' },
+                    { name: 'Moselle', detail: 'Département 57' },
+                    { name: 'Meurthe-et-Moselle', detail: 'Département 54' },
+                    { name: 'Alsace', detail: 'Bas-Rhin · Haut-Rhin' },
+                  ].map((z, i) => (
+                    <li
+                      key={z.name}
+                      style={{
+                        padding: '1.1rem 0',
+                        borderBottom: i < 3 ? `1px dashed ${palette.terracotta}80` : 'none',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: '1rem',
+                      }}
+                    >
+                      <div className="flex items-center gap-3 md:gap-4 min-w-0">
+                        <span
+                          className="serif flex-shrink-0"
+                          style={{
+                            color: palette.terracotta,
+                            fontSize: '1rem',
+                            fontStyle: 'italic',
+                            fontWeight: 700,
+                            minWidth: '1.5rem',
+                          }}
+                        >
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span
+                          className="serif truncate"
+                          style={{
+                            color: palette.chestnutDark,
+                            fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
+                            fontWeight: 700,
+                          }}
+                        >
+                          {z.name}
+                        </span>
+                      </div>
+                      <span
+                        className="serif-it flex-shrink-0 text-right"
+                        style={{ color: palette.chestnut, fontSize: 'clamp(0.8rem, 2.8vw, 0.9rem)' }}
+                      >
+                        {z.detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer
+        id="contact"
+        style={{
+          backgroundColor: palette.chestnutDark,
+          color: palette.linenLight,
+          padding: 'clamp(3rem, 8vw, 5rem) 0 6rem',
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-10 md:mb-12">
+            <div className="flex justify-center mb-6">
+              <Ornament size={70} color={palette.mustard} />
+            </div>
+            <div
+              className="serif"
+              style={{
+                fontSize: 'clamp(1.85rem, 6vw, 2.5rem)',
+                fontWeight: 700,
+                marginBottom: '0.5rem',
+                letterSpacing: '0.02em',
+              }}
+            >
+              Alain Pernot
+            </div>
+            <div
+              className="tracked-sm"
+              style={{ color: palette.mustard, fontSize: '0.7rem', fontWeight: 500 }}
+            >
+              ─ Antiquaire · Brocanteur ─
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10 mb-10 md:mb-12 text-center md:text-left max-w-4xl mx-auto">
+            <div>
+              <div
+                className="tracked-sm"
+                style={{
+                  color: palette.mustard,
+                  fontSize: '0.65rem',
+                  marginBottom: '1rem',
+                  opacity: 0.9,
+                }}
+              >
+                Téléphone
+              </div>
+              <a
+                href="tel:0642497172"
+                className="serif"
+                style={{ fontSize: '1.6rem', fontWeight: 700, color: palette.linenLight }}
+              >
+                06 42 49 71 72
+              </a>
+              <div
+                className="serif-it"
+                style={{ fontSize: '0.95rem', opacity: 0.7, marginTop: '0.5rem' }}
+              >
+                Lundi—Samedi · 9h—19h
+              </div>
+            </div>
+
+            <div>
+              <div
+                className="tracked-sm"
+                style={{
+                  color: palette.mustard,
+                  fontSize: '0.65rem',
+                  marginBottom: '1rem',
+                  opacity: 0.9,
+                }}
+              >
+                Email
+              </div>
+              <a
+                href="mailto:alainpernot57@orange.fr"
+                className="serif"
+                style={{
+                  fontSize: 'clamp(0.95rem, 3.2vw, 1.15rem)',
+                  fontWeight: 400,
+                  color: palette.linenLight,
+                  wordBreak: 'break-word',
+                }}
+              >
+                alainpernot57@orange.fr
+              </a>
+            </div>
+
+            <div>
+              <div
+                className="tracked-sm"
+                style={{
+                  color: palette.mustard,
+                  fontSize: '0.65rem',
+                  marginBottom: '1rem',
+                  opacity: 0.9,
+                }}
+              >
+                Atelier
+              </div>
+              <div className="serif" style={{ fontSize: '1.15rem', lineHeight: 1.5 }}>
+                57630 Vic-sur-Seille
+                <br />
+                <span className="serif-it" style={{ opacity: 0.7, fontSize: '0.95rem' }}>
+                  ~ sur rendez-vous ~
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{ borderTop: `1px solid ${palette.mustard}40`, paddingTop: '1.5rem' }}
+            className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center"
+          >
+            <div style={{ opacity: 0.6, fontSize: '0.7rem' }}>
+              © {new Date().getFullYear()} Alain Pernot — Antiquaire. Tous droits réservés.
+            </div>
+            <div className="flex gap-2 md:gap-5 flex-wrap justify-center" style={{ opacity: 0.7, fontSize: '0.7rem' }}>
+              <a href="#">Mentions légales</a>
+              <span>·</span>
+              <span>Entreprise individuelle</span>
+              <span>·</span>
+              <span>SIRET 439 775 362 00015</span>
+              <span>·</span>
+              <span>NAF 4789Z</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* BOUTON TÉLÉPHONE STICKY MOBILE — toujours visible en bas */}
+      <a
+        href="tel:0642497172"
+        aria-label="Appeler Alain Pernot"
+        className="md:hidden fixed bottom-4 right-4 left-4 serif flex items-center justify-center gap-3"
+        style={{
+          backgroundColor: palette.terracotta,
+          color: palette.cream,
+          padding: '1rem',
+          fontSize: '1.1rem',
+          fontWeight: 700,
+          border: `1px solid ${palette.terracottaDark}`,
+          boxShadow: '0 8px 24px rgba(63, 42, 31, 0.35)',
+          zIndex: 50,
+          letterSpacing: '0.02em',
+          minHeight: '56px',
+        }}
+      >
+        <span style={{ fontSize: '1.3rem' }}>☎</span>
+        Appeler 06 42 49 71 72
+      </a>
+    </div>
+  );
+}
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<AtelierDeCampagne />);
+  </script>
+</body>
+</html>
