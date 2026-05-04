@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pernot-antiquaire.fr/sitemap.xml
